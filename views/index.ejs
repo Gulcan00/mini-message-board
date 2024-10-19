@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <ul>
-      <% for( let index = 0; index < messages.length; index++ ) { %>
-      <li>
-        <div>
-          User: <%= messages[index].user %> Text: <%= messages[index].text %>
-          Date: <%= messages[index].added %>
+  <%- include('./partials/head') %>
+  <body style="background-color: #e5e7eb">
+    <div class="d-flex justify-content-center">
+      <div class="grid">
+        <% for( let index = 0; index < messages.length; index++ ) { %>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title mb-0"><%= messages[index].user %></h5>
+            <small class="card-subtitle text-muted">
+              <%= messages[index].added.toLocaleDateString() %>
+            </small>
+            <p><%= messages[index].text %></p>
+          </div>
         </div>
-      </li>
-      <% } %>
-    </ul>
+        <% } %>
+      </div>
+    </div>
   </body>
 </html>
