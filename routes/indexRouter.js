@@ -28,4 +28,14 @@ indexRouter.post('/new', (req, res) => {
   res.redirect('/');
 });
 
+indexRouter.get('/:index', (req, res) => {
+  const index = !isNaN(req.params.index) ? Number(req.params.index) : -1;
+  if (index >= 0 && index < messages.length) {
+    res.render('detail', { title: 'Message Detail', message: messages[index] });
+  } else {
+    res.redirect('/');
+    console.log('invalid index');
+  }
+});
+
 module.exports = indexRouter;
