@@ -9,12 +9,12 @@ async function getMessage(id) {
   const { rows } = await pool.query('SELECT * FROM messages WHERE id = $1', [
     id,
   ]);
-  return rows;
+  return rows[0];
 }
 
 async function createMessage({ messageText, messageUser }) {
   await pool.query(
-    'INSERT INTO messages (text, user, added) VALUES ($1, $2, $3)',
+    'INSERT INTO messages (text, username, added) VALUES ($1, $2, $3)',
     [messageText, messageUser, new Date()]
   );
 }

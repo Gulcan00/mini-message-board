@@ -10,11 +10,14 @@
         </div>
         <div class="list-group">
           <% for( let index = 0; index < messages.length; index++ ) { %>
-          <a href="<%= index %>" class="list-group-item list-group-item-action">
+          <a
+            href="<%= messages[index].id %>"
+            class="list-group-item list-group-item-action"
+          >
             <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1"><%= messages[index].user %></h5>
+              <h5 class="mb-1"><%= messages[index].username %></h5>
               <small class="text-muted"
-                ><%= messages[index].added.toLocaleDateString() %></small
+                ><%= messages[index].added?.toLocaleDateString() %></small
               >
             </div>
             <p class="mb-1"><%= messages[index].text %></p>

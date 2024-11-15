@@ -9,10 +9,10 @@
         >
           <div class="d-flex align-items-baseline gap-2">
             <small class="text-muted">FROM</small>
-            <p><%= message.user %></p>
+            <p><%= message.username %></p>
           </div>
           <small class="text-muted"
-            ><%= message.added.toLocaleDateString() %></small
+            ><%= message.added?.toLocaleDateString() %></small
           >
         </div>
         <div class="card-body">
