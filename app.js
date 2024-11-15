@@ -3,11 +3,11 @@ const express = require('express');
 const PORT = 3000;
 const app = express();
 
-const indexRouter = require('./routes/indexRouter');
+const messagesRouter = require('./routes/messagesRouter');
 
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/', indexRouter);
+app.use('/', messagesRouter);
 
 app.set('view engine', 'ejs');
 
